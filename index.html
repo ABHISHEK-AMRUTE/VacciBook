@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html id="checkfocus">
+<title>VacciBook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="icon" href="./vaccination.svg" type="image/icon type">
+<body >
+  <h1> Covid Notifier</h1>
+
+  <label class="w3-text"><b>PIN Code</b></label>
+  <input id="pincode" class="w3-input w3-border w3-light-grey" type="number">
+  <br>
+  <label class="w3-text"><b>Date in format DD-MM-YYYY (example 31-05-2021)</b></label>
+  <input id="date" placeholder="dd-mm-yyyy" class="w3-input w3-border w3-light-grey" type="date">
+  <br>
+
+
+
+
+  <label class="w3-text"><b>Select time intervals in which you want me to check slots?</b>(<i>If you select 5 min, I
+      will check slots in every five minutes</i>) </label>
+  <select id="time" class="w3-select" name="option">
+    <option value="" disabled selected>Select Time interval</option>
+    <option value="5000">5 seconds</option>
+    <option value="30000">30 seconds</option>
+    <option value="60000">One minute</option>
+    <option value="300000">Five minutes</option>
+    <option value="600000">Ten minutes</option>
+  </select>
+
+
+  <br>
+  <label class="w3-text"><b>Please select age group</b></label>
+  <select id="age" class="w3-select" lsoname="option">
+    <option value="" disabled selected>Age Group</option>
+    <option value="0">18+</option>
+    <option value="1">45+</option>
+    <option value="2">Check for both</option>
+
+  </select>
+
+  <br> <br>
+  <button id="start" class="w3-btn w3-blue-grey">Start Checking</button>
+
+
+  <div class="w3-container">
+    <h2>List of slots</h2>
+
+    <ul id="listContainer" class="w3-ul w3-card-4">
+      <li class="w3-display-container w3-large"><b>Do not close this tab</b>, I will notify you when vaccines will be available. 
+         
+    </ul>
+
+
+
+  </div>
+
+</body>
+<script src="./listItem.js">console.log("Please enable javascript")</script>
+<script src="./src.js">console.log("Please enable javascript")</script>
+
+</html>
