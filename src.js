@@ -9,7 +9,16 @@ var doRing = false;
 
 const listContainer = document.getElementById('listContainer')
 
-let permission =  Notification.requestPermission();
+navigator.serviceWorker.register('sw.js');
+Notification.requestPermission(function(result) {
+  navigator.serviceWorker.ready.then(function(registration) {
+    registration.showNotification('Testing Notifications',{
+      body: "So that you won't miss out any slots",
+      icon: './vaccination.svg'
+    });
+  }); 
+});
+
 
 document.getElementById('start').addEventListener('click' , function (){
   var audio = new Audio('voice_over.mp3');
@@ -54,11 +63,14 @@ document.getElementById('start').addEventListener('click' , function (){
                       {
                         doRing = true;
                         listContainer.appendChild(getListItem(element));
-                        new Notification('Vaccine slots are available',{
-                          body: element.address +", " + element.block_name +", "+ element.district_name +", "+ element.state_name,
-                          icon: './vaccination.svg'
+                        navigator.serviceWorker.ready.then(function(registration) {
+                          registration.showNotification('Vaccine slots are available',{
+                            body: element.address +", " + element.block_name +", "+ element.district_name +", "+ element.state_name,
+                            icon: './vaccination.svg'
+                          });
                         });
-                        new Notification(element.name)
+                      
+                      
                       }
                      break;
                 case "1" :
@@ -66,13 +78,23 @@ document.getElementById('start').addEventListener('click' , function (){
                   {
                     doRing = true;
                     listContainer.appendChild(getListItem(element));
-                    new Notification(element.name)
+                    navigator.serviceWorker.ready.then(function(registration) {
+                      registration.showNotification('Vaccine slots are available',{
+                        body: element.address +", " + element.block_name +", "+ element.district_name +", "+ element.state_name,
+                        icon: './vaccination.svg'
+                      });
+                    });
                   }
                    break;
                 case "2":
                   doRing = true;
                   listContainer.appendChild(getListItem(element));
-                  new Notification(element.name)
+                  navigator.serviceWorker.ready.then(function(registration) {
+                    registration.showNotification('Vaccine slots are available',{
+                      body: element.address +", " + element.block_name +", "+ element.district_name +", "+ element.state_name,
+                      icon: './vaccination.svg'
+                    });
+                  });
                   break;
               }
             }
