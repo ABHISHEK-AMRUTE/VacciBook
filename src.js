@@ -22,7 +22,7 @@ Notification.requestPermission(function(result) {
 
 document.getElementById('start').addEventListener('click' , function (){
   var audio = new Audio('voice_over.mp3');
-  
+    clearEverthing()
   
    pincode  = document.getElementById('pincode').value;
    var temp = new Date(document.getElementById('date').value);
@@ -43,7 +43,7 @@ document.getElementById('start').addEventListener('click' , function (){
 
 
    checkTimer =  setInterval(function(){  
-    clearEverthing()
+  
     console.log('checking for slots...')
     var dateString = day+"-"+month+"-"+year
     fetch('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode='+pincode+'&date='+dateString)
